@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript_02_osa</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./layout.css" />
+  </head>
+  <body>
+    <h1>Hei Java Script</h1>
+    <p>Kirjoitan sinulla nyt ensimmäistä kertaa.</p>
+    <p>
+      Tehtävänä on koodata JavaScriptillä keskusteluikkuna, johon lisätään
+      sisältö "Hyvää huomenta!". (alert)
+    </p>
+    <p>
+      Toisena tehtävänä kirjoittaa selaimen konsoliin jotankin. (console.log)
+    </p>
+
+    <!--  JavaScript lisätään bodyn loppuun, jotta se suoritetaan vasta kun koo DOM rakenne on valmis EDIT-TOGGLE comment -->
+
+    <script>
+      console.log("-- 01 Muuttujat --");
+      //01 muuttujat
+
+      let count = 0;
+      console.log("muuttuja count on aluksi " + count, count++);
+      count = count + 1;
+      console.log("Muuttuja count on nyt " + count);
+      count++;
+      console.log("Muuttuja count on nyt " + count);
+
+      //muuttujat_02
+
+      const ageLimit = 18;
+
+      console.log("Muuttuja ageLimit on const-määritelty " + ageLimit);
+      //ageLimit++;
+
+      // Määrittele kaksi muuttujaa: student ja name.
+      // Anna muuttujalle name arvoksi "Mikko".
+      // Kopioi arvo muuttujasta name muuttujaan student.
+      // Tulosta student-muuttujan arvo konsoliin (tulostus on "Mikko").
+
+      let student = null;
+      console.log("student");
+      let name = "Mikko";
+      console.log(student, name);
+      student = name;
+      console.log(student.name);
+
+      //tietotypit
+      // datatypes
+      let age2 = 27;
+      let name2 = "touko";
+      let isStudent2 = true;
+      let hobbies2 = ["voimistelu", "kalastus"];
+      let info2 = {
+        schoolName: "Business College Helsinki",
+        grade: 5,
+      };
+
+      //tulostetaan kaikki muuttujat konsoliin
+
+      console.log(
+        "muuttujan age2 arvo " + age2 + "ja tietotyypi " + typeof age2
+      );
+
+      console.log(
+        "muuttujan name2 arvo " + name2 + "ja tietotyypi " + typeof name2
+      );
+
+      console.log(
+        "muuttujan inStudent2 arvo " +
+          isStudent2 +
+          "ja tietotyypi " +
+          typeof isStudent2
+      );
+
+      console.log(
+        "muuttujan hobbies2 arvo " +
+          hobbies2 +
+          "ja tietotyypi " +
+          typeof hobbies2
+      );
+
+      console.log(
+        "muuttujan info2 arvo " + info2 + "ja tietotyypi " + typeof info2
+      );
+
+      console.log(
+        "Olioon info2 on tallennetu arvot " +
+          info2.schoolName +
+          " ja " +
+          info2.grade +
+          " ja Olioon tietotyypi " +
+          typeof info2
+      );
+
+      // 03 numerot
+
+      console.log("<-- 03 numerot -->");
+
+      let vastaus = 42;
+      let merkkijonoVastaus = vastaus.toString();
+      console.log(
+        "muuttajan vastaus arvo " + vastaus + " ja tietotyypi" + typeof vastaus
+      );
+      console.log(
+        "muuttajan merkkijonoVastaus arvo " +
+          merkkijonoVastaus +
+          " ja tietotyypi" +
+          typeof merkkijonoVastaus
+      );
+
+      //isNaN (is not a number)
+
+      let luku = 123;
+      let merkkijono = "abc";
+      let merkkijonoLuku = luku.toString();
+      console.log("Muuttuja luku ei ole numero (onko totta): " + isNaN(luku));
+      console.log(
+        "Muuttuja merkkijono ei ole numero (onko totta): " + isNaN(merkkijono)
+      );
+      console.log(
+        "Muuttuja merkkijonoLuku ei ole numero (onko totta): " +
+          isNaN(merkkijonoLuku)
+      );
+
+      //merkkijono luvuksi (Number.parseInt)
+      let str = "42";
+      let strNumero = Number.parseInt(str);
+      console.log(
+        "arvo" +
+          str +
+          " tyyppi " +
+          typeof str +
+          "arvo" +
+          strNumero +
+          " tyyppi " +
+          typeof strNumero
+      );
+
+      //muutetaan merkijono numeroksi ja lasketaan sillä
+
+      let x = 10;
+      let y = "20 metria";
+      console.log(x, y);
+      y = Number.parseInt(y);
+      console.log(x, y);
+      let summa = x + y;
+      console.log("summa = x + y " + " ===> " + x + " +  " + y + " = " + summa);
+
+      // desimaalien määrä
+
+      let luku3 = 2.12345;
+      luku3KaksiDesimaalia = luku3.toFixed(2);
+      console.log(luku3, luku3KaksiDesimaalia);
+      luku3KaksiDesimaalia = parseFloat(luku3KaksiDesimaalia);
+      console.log(luku3, luku3KaksiDesimaalia);
+      summa = luku3 + luku3KaksiDesimaalia;
+      console.log("summa on " + summa);
+
+      // round numbers
+
+      let num1 = 4.8;
+      let num2 = 3.5;
+
+      // Pyöristä 'num1' ja 'num2' lähimpään kokonaislukuun ja tallenna tulokset 'roundedNum1' ja 'roundedNum2'
+      let roundedNum1 = Math.round(num1);
+      let roundedNum2 = Math.round(num2);
+
+      // Laske neliöjuuri 'roundedNum1':stä ja tallenna se 'sqrtNum1':een
+
+      let sqrtNum1 = Math.sqrt(roundedNum1);
+
+      // Etsi suurempi numero 'roundedNum1' ja 'roundedNum2' välillä ja tallenna se 'maxNum':iin
+
+      let maxNum = Math.max(roundedNum1, roundedNum2);
+
+      // Tulosta tulokset konsoliin
+
+      console.log("roundedNum1:", roundedNum1);
+      console.log("roundedNum2:", roundedNum2);
+      console.log("sqrtNum1:", sqrtNum1);
+      console.log("maxNum:", maxNum);
+
+      // Käytä typeof operaattoria tarkistaaksesi muuttujien tietotyypit ja tulosta tulokset
+      console.log("Type of roundedNum1:", typeof roundedNum1);
+      console.log("Type of roundedNum2:", typeof roundedNum2);
+      console.log("Type of sqrtNum1:", typeof sqrtNum1);
+      console.log("Type of maxNum:", typeof maxNum);
+
+      //kertauslasku koululaisille
+
+      let number1 = 4;
+      let number2 = 8;
+
+      //Laske näiden kahden numeron jakolaskun tulos ja tallenna se uuteen muuttujaan
+
+      let jakotulos = number2 / number1;
+
+      console.log("jakotulos:", jakotulos);
+
+      //Ostoskori
+
+      //Määrittele muuttujat kullekin ostoskorissa olevalle tuotteelle ja niiden hinnoille.
+
+      let value1 = 4.5;
+      let value2 = 8.1;
+
+      let thing1 = "book";
+      let thing2 = "vase";
+
+      //Laske tuotteiden yhteishinta ja tallenna se muuttujaan, esimerkiksi yhteishinta.
+
+      let yhteishinta = value1 + value2;
+
+      console.log("thing1 ja thing2, yhteishinta: ", yhteishinta);
+
+      //Luo muuttujat a ja b ja anna niille kokonaislukuarvot.
+
+      let a = 5;
+      let b = 2;
+
+      //Käytä yhteen-, vähennys-, kerto- ja jakolaskuoperaattoreita muuttujille a ja b. Tallenna jokainen tulos erilliseen muuttujaan (summa, erotus, tulo, osamäärä, jakojäännös).
+
+      let suma = a + b;
+      let erotus = a - b;
+      let tulo = a * b;
+      let osämäärä = a / b;
+      let jakojäännös = a % b;
+
+      //Käytä console.log() -metodia tulostamaan jokaisen operaation tulos konsoliin.
+
+      console.log("a ja b suma = ", " ", suma);
+      console.log("a ja b erotus =", " ", erotus);
+      console.log("a ja b tulo =", " ", tulo);
+      console.log("a ja b osämäärä = ", " ", osämäärä);
+      console.log("a ja b jakojäännös = ", " ", jakojäännös);
+
+      //Tehtävä: Merkkijonojen yhdistäminen
+
+      //Luo kaksi muuttujaa, etunimi ja sukunimi, ja aseta niihin omat etu- ja sukunimesi.
+
+      let etunimi = "Maria";
+      let sukunimi = "Shatylovich";
+
+      //Yhdistä nämä kaksi merkkijonoa ja tulosta tulos konsoliin.*/
+
+      console.log("etunimi:", etunimi);
+      console.log("sukunimi:", sukunimi);
+
+      // Kirjoita funktio sum1 sitten, että se palauttaa a:n ja b:n summan. Käytä tavallista funktiota
+
+      function sum1(a, b) {
+        return a + b;
+      }
+
+      // Kirjoita funktio sum2, joka on sama kuin yllä, mutta on nuolifunktio
+
+      add = (a, b) => {
+        return a + b;
+      };
+
+      console.log(add(3, 5));
+
+      // Kirjoita funktio multiply1 siten, että se palauttaa a:n ja b:n tulon (kertolaskun tulos). Käytä tavallista funktiota
+
+      function multiply1(a, b) {
+        return a * b;
+      }
+      console.log(multiply1(6, 8));
+
+      // Kirjoita funktio multiply2, joka on nuolifunktio
+
+      add = (a, b) => {
+        return a * b;
+      };
+
+      console.log(add(3, 5));
+
+      //** Harjoitus: Neliön pinta-ala
+
+      //Tee funktio nimeltä laskeNelionPintaala, joka ottaa yhden parametrin: sivunPituus.
+
+      function laskeNelionPintaala(sivunPituus) {
+        return sivunPituus * sivunPituus;
+      }
+      console.log(laskeNelionPintaala(9));
+
+      //Funktio laskee annetun neliön pinta-alan kaavalla sivunPituus * sivunPituus ja palauttaa sen.
+      //Testaa funktiota antamalla sille eri sivun pituuksia ja tulosta pinta-alat konsoliin.
+      //Voit käyttää joko nuolifunktiota tai tavallista funktiota*/
+
+      multiply = (sivunPituus) => {
+        return sivunPituus * sivunPituus;
+      };
+
+      console.log(laskeNelionPintaala(9));
+
+      //Harjoitus: Kolmion pinta-ala
+
+      //Tee funktio nimeltä laskeKolmionPintaala, joka ottaa kaksi parametria: kannanPituus ja korkeus
+
+      function laskeKolmionPintaala(kannanPituus, korkeus) {
+        return (kannanPituus * korkeus) / 2;
+      }
+      console.log(laskeKolmionPintaala(30, 45));
+
+      //MERKKIJONOT
+
+      //string length
+
+      function CountCharacters(str) {
+        return str.length;
+      }
+
+      console.log(CountCharacters("How are you today?"));
+
+      /**
+                        Muokkaa funktio shoutMyName palauttamaan saamansa name-parametri isolla kirjaimilla.
+                         */
+
+      function shoutMyName(name) {
+        return name.toUpperCase();
+      }
+
+      console.log(shoutMyName("Maria"));
+
+      /**
+                  Muokkaa funktiota lowerName, jotta se palauttaa saamansa name-parametrin kokonaan pienin kirjaimin
+
+                   */
+      function lowerName(name) {
+        return name.toLowerCase();
+      }
+
+      console.log(lowerName("MARIA"));
+
+      /**
+                  Muokkaa funktio getFirstCharacter palauttamaan saamansa merkkijonon ensimmäinen merkki
+                   */
+
+      function getFirstLetter(name) {
+        return name[0];
+      }
+
+      console.log(getFirstLetter("Alaska"));
+
+      /**
+            Muokkaa funktio getLastCharacter palauttamaan saamansa merkkijonon viimeinen merkki
+             */
+
+      function getLastCharacter(name) {
+        return name[name.length - 1];
+      }
+
+      console.log(getLastCharacter("Doggie"));
+
+      /**
+            Muokkaa funktio skipFirstCharacter  palauttamaan merkkijono, jossa on saamansa merkkijono ilman sen ensimmäistä merkkiä
+
+             */
+      function skipFirstCharacter(text) {
+        return text.slice(1);
+      }
+      console.log(skipFirstCharacter("Doggie"));
+
+      /**
+            Moukkaa funktio concatInitials palauttamaan merkkijono, joka yhdistää parametrit firstNameInitial ja lastNameInitial.
+             */
+
+      function concatInitials(firstNameInitial, lastNameInitial) {
+        return firstNameInitial[0];
+        return lastNameInitial[0];
+      }
+      console.log(concatInitials("Petri"));
+      console.log(concatInitials("Halonen"));
+
+      /**
+      Muokkaa funktio sayHello jotta se sisällyttää parametrina saamansa nimen tervehdykseen.
+
+       */
+
+      function sayHello(name) {
+        return `Hello ${name}`;
+      }
+
+      console.log(sayHello("Alex"));
+
+      /**
+Muokkaa funktio getFullName function palauttamaan interpolation avulla so that it returns the person's full name by utilizing string interpolation.
+ */
+
+      function annaNimi(etuNimi, sukuNimi) {
+        return `${etuNimi}, ${sukuNimi}`;
+      }
+      console.log(annaNimi("Maria", "Shatylovich"));
+
+      /**
+Muokkaa funktio capitalize palauttamaan saamansa sana kirjoitettuna vain isolla alkukirjaimella
+ */
+
+      function capitalize(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }
+
+      console.log(capitalize("raISA"));
+      console.log(capitalize("eSTer"));
+      console.log(capitalize("harry"));
+    </script>
+  </body>
+</html>
